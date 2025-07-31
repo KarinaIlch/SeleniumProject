@@ -27,21 +27,28 @@ public class FindElementTest {
 
         @Test
         public void findElementByTagName() {
+            //find -> "h1"
+
             //driver.findElement(By.tagName("h1"));
             WebElement title = driver.findElement(By.tagName("h1"));
             System.out.println(title.getText());
+
+            //find -> "h2"
             WebElement element = driver.findElement(By.tagName("h2"));
             System.out.println(element.getText());
 
+            //find -> "a" (result - empty field)
             WebElement link = driver.findElement(By.tagName("a"));
             System.out.println(link.getText());
 
+            //find -> tagName "label" and show a list
             WebElement label = driver.findElement(By.tagName("label"));
             System.out.println(label.getText());
 
             List<WebElement> labels = driver.findElements(By.tagName("label"));
             System.out.println(labels.size());
 
+            //find -> tagName "a"
             List<WebElement> links = driver.findElements(By.tagName("a"));
             System.out.println(links.size());
         }
@@ -64,7 +71,7 @@ public class FindElementTest {
         }
 
         @Test
-        public void findByLinktext() {
+        public void findByLinkText() {
             WebElement linkText = driver.findElement(By.linkText("Let the car work"));
             System.out.println(linkText.getText());
 
@@ -81,21 +88,23 @@ public class FindElementTest {
         @Test
         public void findElementsByCssSelector(){
             // driver.findElement(By.tagName("h1"));
-            // tagName -> h1
+            // tagName "h1" -> "h1"
             driver.findElement(By.cssSelector("h1"));
             driver.findElement(By.cssSelector("h2"));
 
-            // id= 'city' -> #city
+            // id = "city" -> "#city"
             driver.findElement(By.cssSelector("#city"));
             driver.findElement(By.cssSelector("#dates"));
 
-            // classname 'telephone' -> .name_class
+            // className "telephone" -> ".telephone"
             driver.findElement(By.cssSelector(".telephone"));
             driver.findElement(By.cssSelector(".navigation-link"));
 
+            // pair selectors
             driver.findElement(By.cssSelector("[href='/search']"));
             driver.findElement(By.cssSelector("[href='/let-car-work']"));
-            // contains
+
+            // contains -> * (поиск по сокращённому)
             driver.findElement(By.cssSelector("[href*='/reg']"));
             driver.findElement(By.cssSelector("[class*='offers']"));
 
@@ -107,13 +116,14 @@ public class FindElementTest {
             driver.findElement(By.cssSelector("[href$='-work']"));
             driver.findElement(By.cssSelector("[class$='cities']"));
 
-            // composite  cssSelector
+            // composite  cssSelector > (чтобы достучаться до компонента ниже)
             driver.findElement(By.cssSelector(".logo>img")); // one step above
-            driver.findElement(By.cssSelector(".input-container [formcontrolname='city']")); // space two or more  steps
+            driver.findElement(By.cssSelector(".input-container [formcontrolname='city']")); // space two or more steps above
 
             // tag or class or <id>:nth-child(n)
             WebElement elem = driver.findElement(By.cssSelector(".navigation-link:nth-child(6)"));
             System.out.println("elem = " + elem.getText());
+
 
 
         }
