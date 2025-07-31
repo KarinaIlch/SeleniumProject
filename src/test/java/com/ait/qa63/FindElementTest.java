@@ -125,7 +125,6 @@ public class FindElementTest {
             System.out.println("elem = " + elem.getText());
 
 
-
         }
 
         @AfterMethod

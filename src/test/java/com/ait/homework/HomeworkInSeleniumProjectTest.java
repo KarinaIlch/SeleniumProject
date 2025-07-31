@@ -1,4 +1,4 @@
-package homework;
+package com.ait.homework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class HomeworkInSeleniumProject {
+public class HomeworkInSeleniumProjectTest {
 
     WebDriver driver;
 
