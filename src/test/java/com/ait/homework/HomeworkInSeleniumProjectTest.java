@@ -108,8 +108,47 @@ public class HomeworkInSeleniumProjectTest {
         // .class:nth-child(n)
         driver.findElement(By.cssSelector(".top-menu > li:nth-child(3)"));
 
+    }
 
+    @Test
+    public void XPathTest(){
+        // tag
+        WebElement heading = driver.findElement(By.xpath("//h3"));
+        System.out.println(heading.getText());
 
+        List<WebElement> list = driver.findElements(By.xpath("//a"));
+        System.out.println(list.size());
+
+        // id
+        WebElement cart = driver.findElement(By.xpath("//*[@id='flyout-cart']"));
+        System.out.println(cart.isDisplayed());
+
+        WebElement notification = driver.findElement(By.xpath("//*[@id='bar-notification']"));
+        System.out.println(notification.isDisplayed());
+
+        // class
+        WebElement footer = driver.findElement(By.xpath("//*[@class='footer-poweredby']"));
+        System.out.println(footer.getText());
+
+        WebElement footer1 = driver.findElement(By.xpath("//*[@class='footer-disclaimer']"));
+        System.out.println(footer1.getText());
+
+        // link text
+        WebElement linkText1 = driver.findElement(By.xpath("//*[text()='nopCommerce']"));
+        System.out.println(linkText1.getText());
+
+        WebElement linkText2 = driver.findElement(By.xpath("//*[text()='My account']"));
+        System.out.println(linkText2.getText());
+
+        // contain *
+        driver.findElement(By.xpath("//*[contains(@rel,'shortcut')]"));
+        driver.findElement(By.xpath("//*[contains(@content,'initial-scale=1')]"));
+
+        // start ^
+        driver.findElement(By.xpath("//*[starts-with(@href,'/Themes/DefaultClean/')]"));
+
+        // composite cssSelector
+        driver.findElement(By.xpath("//*[contains(@class,'master-wrapper-content')]/div[contains(@class,'header')]"));
     }
 
     @AfterMethod

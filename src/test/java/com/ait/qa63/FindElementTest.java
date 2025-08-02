@@ -126,6 +126,51 @@ public class FindElementTest {
 
         }
 
+    @Test
+    public void XPathTest() {
+
+        // XPath
+        // XPath    //tag[@attribute='parameter]=//*[@attribute='parameter] * означает "ищи где хочеш"
+
+//      driver.findElement(By.cssSelector("h1"));
+//      driver.findElement(By.cssSelector("h2"));
+        driver.findElement(By.xpath("//h1"));
+        driver.findElement(By.xpath("//h2"));
+
+//      driver.findElement(By.cssSelector("#city"));
+//      driver.findElement(By.cssSelector("#dates"));
+        // id -> //tag[@id='value']
+
+        driver.findElement(By.xpath("//input[@id='city']"));
+        driver.findElement(By.xpath("//input[@id='dates']"));
+
+//      driver.findElement(By.cssSelector(".telephone"));
+//      driver.findElement(By.cssSelector(".navigation-link"));
+//      class-> //tag[@class-'value']
+        driver.findElement(By.xpath("//*[@class='telephone']")); // * ищи повсюду
+        driver.findElement(By.xpath("//a[@class='navigation-link']"));
+
+//      driver.findElement(By.cssSelector("[href='/search']"));
+//      driver.findElement(By.cssSelector("[href='/let-car-work']));"
+        driver.findElement(By.xpath("//a[@href='/search']"));
+        driver.findElement(By.xpath("//a[@href='/let-car-work']"));
+
+        //start
+//      driver.findElement(By.cssSelector("[href^='/ter']"));
+//      driver.findElement(By.cssSelector("[class^='red']"));
+        driver.findElement(By.xpath("//a[starts-with(@href,'/ter')]"));
+        driver.findElement(By.xpath("//*[starts-with(@class,'red')]"));
+
+        //contains text
+        WebElement feedback = driver.findElement(By.xpath("//span[text()=' Latest feedback from our customers ']"));
+        System.out.println(feedback.getText());
+
+//      driver.findElement(By.cssSelector(".logo>img")); // one step above
+//      driver.findElement(By.cssSelector(".input-container [formcontrolname='city']")); // space two or more steps above
+        driver.findElement(By.xpath("//*[@class='logo']/img")); // one step above
+        driver.findElement(By.xpath("//*[@class='input-container']//*[@formcontrolname='city']")); // space two or more steps above
+    }
+
         @AfterMethod
         public void quit() {
             driver.quit();
