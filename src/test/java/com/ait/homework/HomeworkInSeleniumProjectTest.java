@@ -108,8 +108,9 @@ public class HomeworkInSeleniumProjectTest {
         // .class:nth-child(n)
         driver.findElement(By.cssSelector(".top-menu > li:nth-child(3)"));
 
-    }
 
+
+    }
 
     @AfterMethod
     public void quit() {

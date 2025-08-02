@@ -124,7 +124,6 @@ public class FindElementTest {
             WebElement elem = driver.findElement(By.cssSelector(".navigation-link:nth-child(6)"));
             System.out.println("elem = " + elem.getText());
 
-
         }
 
         @AfterMethod
