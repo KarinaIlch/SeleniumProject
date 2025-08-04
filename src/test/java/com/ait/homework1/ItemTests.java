@@ -1,5 +1,6 @@
 package com.ait.homework1;
 
+import com.ait.homework1.core.TestBases;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -7,18 +8,18 @@ public class ItemTests extends TestBases {
 
         @BeforeMethod
         public void precondition() {
-            clickOnTheLogInButton();
-            clickOnTheEmailDueLogin();
-            clickOnThePasswordDueLogin();
-            clickOnTheRememberMeButton();
-            clickOnTheLoginButton();
+            app.getUser().clickOnTheLogInButton();
+            app.getUser().clickOnTheEmailDueLogin();
+            app.getUser().clickOnThePasswordDueLogin();
+            app.getUser().clickOnTheRememberMeButton();
+            app.getUser().clickOnTheLoginButton();
         }
 
         @Test
          public void addItemToCartTest() {
-            clickOnTheSecondProduct();
-            clickOnTheAddToTheCart();
-            assertItemInCart();
+            app.getItem().clickOnTheSecondProduct();
+            app.getItem().clickOnTheAddToTheCart();
+            app.assertCheckItemInCart(".item-box:nth-child(3) .add-info .buttons input");
         }
 
 }

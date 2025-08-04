@@ -1,5 +1,6 @@
 package com.ait.homework1;
 
+import com.ait.homework1.core.TestBases;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBases {
@@ -7,25 +8,25 @@ public class CreateAccountTests extends TestBases {
     @Test
     public void newUserRegistrationPositiveTest() {
 
-        clickOnTheRegister();
-        clickOnTheGender();
-        clickOnTheFirstName();
-        clickOnTheLastName();
-        clickOnTheEmail();
-        clickOnThePassword();
-        clickOnThePasswordConfirmation();
-        clickOnTheRegisterButton();
-        assertCheckTheLogOutButton();
+        app.getUser().clickOnTheRegister();
+        app.getUser().clickOnTheGender();
+        app.getUser().clickOnTheFirstName();
+        app.getUser().clickOnTheLastName();
+        app.getUser().clickOnTheEmail();
+        app.getUser().clickOnThePassword();
+        app.getUser().clickOnThePasswordConfirmation();
+        app.getUser().clickOnTheRegisterButton();
+        app.getNavi().assertCheckTheLogOutButton();
 
     }
 
     @Test
     public void UserLoginPositiveTest() {
-        clickOnTheLogInButton();
-        clickOnTheEmailDueLogin();
-        clickOnThePasswordDueLogin();
-        clickOnTheRememberMeDueLogin();
-        clickOnTheLoginButtonDueLogin();
+        app.getUser().clickOnTheLogInButton();
+        app.getUser().clickOnTheEmailDueLogin();
+        app.getUser().clickOnThePasswordDueLogin();
+        app.getUser().clickOnTheRememberMeDueLogin();
+        app.getUser().clickOnTheLoginButtonDueLogin();
 
     }
 
