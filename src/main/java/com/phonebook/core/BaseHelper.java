@@ -17,7 +17,7 @@ public class BaseHelper {
         String email = "manuel" + i + "@gmail.com";
         return email;
     }
-    @Test
+
     public boolean isElementPresent(By locator){
         return driver.findElements(locator).size()>0; // возвращает любой element
     }
@@ -40,6 +40,14 @@ public class BaseHelper {
 
     public void click1(By locator1) {
         driver.findElement(locator1).click();
+    }
+
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

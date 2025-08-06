@@ -20,3 +20,5 @@ settings.gradle
 gradlew
 gradlew.bat
 /gradle
+
+src/test/java/com/ait/homeworkFirstSeleniumProject/

@@ -58,9 +58,7 @@ public class UserHelper extends BaseHelper {
         driver.findElement(By.id("RememberMe")).click();
     }
 
-    public void clickOnThePasswordDueLogin() {
-        type1(By.id("Password"), "Qwert09_poi");
-    }
+//    public void clickOnThePasswordDueLogin() { type1(By.id("Password"), "Qwert09_poi");}
 
     public void clickOnTheEmailDueLogin() {
         type1(By.id("Email"), "rosaliaw1@de.com");

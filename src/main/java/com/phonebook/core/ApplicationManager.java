@@ -46,12 +46,4 @@ public class ApplicationManager {
         return navi;
     }
 
-    public boolean assertCheckItemInCart(String text) {
-        List<WebElement> contacts = driver.findElements(By.cssSelector(".item-box:nth-child(3) .add-info .buttons input"));
-        for (WebElement element: contacts) {
-            if (element.getText().equals(text)) return true;
-        }
-        return false;
-    }
-
 }

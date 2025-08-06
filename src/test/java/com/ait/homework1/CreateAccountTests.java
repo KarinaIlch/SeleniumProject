@@ -24,7 +24,8 @@ public class CreateAccountTests extends TestBases {
     public void UserLoginPositiveTest() {
         app.getUser().clickOnTheLogInButton();
         app.getUser().clickOnTheEmailDueLogin();
-        app.getUser().clickOnThePasswordDueLogin();
+        app.getUser().clickOnThePassword();
+//        app.getUser().clickOnThePasswordDueLogin();
         app.getUser().clickOnTheRememberMeDueLogin();
         app.getUser().clickOnTheLoginButtonDueLogin();
 
