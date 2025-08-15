@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression" verbose="1">
+    <test name="Test2">
+        <classes>
+            <class name="com.ait.homework1.CreateAccountTests"/>
+            <class name="com.ait.homework1.ItemTests">
+                <parameter name="email" value="rosaliaw1@de.com"/>
+                <parameter name="password" value="Qwert09_poi"/>
+            </class>
+        </classes>
+    </test>
+</suite>
