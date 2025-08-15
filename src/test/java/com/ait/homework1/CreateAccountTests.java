@@ -25,7 +25,6 @@ public class CreateAccountTests extends TestBases {
         app.getUser().clickOnTheLogInButton();
         app.getUser().clickOnTheEmailDueLogin();
         app.getUser().clickOnThePassword();
-//        app.getUser().clickOnThePasswordDueLogin();
         app.getUser().clickOnTheRememberMeDueLogin();
         app.getUser().clickOnTheLoginButtonDueLogin();
 
