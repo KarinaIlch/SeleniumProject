@@ -3,7 +3,7 @@ package com.ait.homework1;
 import com.ait.homework1.core.TestBases;
 import com.phonebook.data.DataUserLogin;
 import com.phonebook.models.UserData;
-
+import com.phonebook.utils.MyDataProvider;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBases {
@@ -27,6 +27,26 @@ public class CreateAccountTests extends TestBases {
         app.getNavi().assertCheckTheLogOutButton();
     }
 
+    @Test(dataProviderClass = MyDataProvider.class, dataProvider = "addNewUser")
+    public void registrationTestWithDataProvider(String name, String lastname, String password, String email) {
+        UserData anotherUser = new UserData()
+                .setUserName(name)
+                .setUserLastName(lastname)
+                .setPassword(password)
+                .setEmail(email);
+
+        app.getUser().clickOnTheRegister();
+        app.getUser().clickOnTheGender();
+        app.getUser().clickOnTheFirstName(anotherUser);          // ← передаємо user
+        app.getUser().clickOnTheLastName(anotherUser);
+        app.getUser().clickOnTheEmail(anotherUser);
+        app.getUser().clickOnThePassword(anotherUser);
+        app.getUser().clickOnThePasswordConfirmation(anotherUser);
+        app.getUser().clickOnTheRegisterButton();
+        app.getNavi().assertCheckTheLogOutButton();
+
+    }
+
     @Test
     public void UserLoginPositiveTest() {
         UserData user = new UserData()
@@ -38,5 +58,6 @@ public class CreateAccountTests extends TestBases {
         app.getUser().clickOnThePassword(user);          // вводимо пароль (той самий locator #Password)
         app.getUser().clickOnTheRememberMeDueLogin();
         app.getUser().clickOnTheLoginButtonDueLogin();
+
     }
-}
+    }
