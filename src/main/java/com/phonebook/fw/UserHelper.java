@@ -1,6 +1,7 @@
 package com.phonebook.fw;
 
 import com.phonebook.core.BaseHelper;
+import com.phonebook.models.UserData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,63 +11,58 @@ public class UserHelper extends BaseHelper {
         super(driver);
     }
 
-    public void clickOnTheRegisterButton() {
-        click(By.id("register-button"));
-    }
-
-    public void clickOnThePasswordConfirmation() {
-        type(By.id("ConfirmPassword"), "Qwert09_poi");
-    }
-
-    public void clickOnTheLoginButton() {
-        click1(By.className("login-button"));
-    }
-
-    public void clickOnTheRememberMeButton() {
-        click1(By.id("RememberMe"));
-    }
-
-    public void clickOnThePassword() {
-        type(By.id("Password"), "Qwert09_poi");
-    }
-
-    public void clickOnTheEmail() {
-        type(By.id("Email"), newEmail());
-    }
-
-    public void clickOnTheLastName() {
-        type(By.id("LastName"), "Williams");
-    }
-
-    public void clickOnTheFirstName() {
-        type(By.id("FirstName"), "Rosalia");
+    // --------- Registration ----------
+    public void clickOnTheRegister() {
+        click(By.cssSelector("[href='/register']"));
     }
 
     public void clickOnTheGender() {
         click(By.cssSelector("#gender-female"));
     }
 
-    public void clickOnTheRegister() {
-        click(By.cssSelector("[href='/register']"));
+    public void clickOnTheFirstName(UserData user) {
+        type(By.id("FirstName"), user.getUserName());
     }
 
-    public void clickOnTheLoginButtonDueLogin() {
-        driver.findElement(By.className("login-button")).click();
+    public void clickOnTheLastName(UserData user) {
+        type(By.id("LastName"), user.getUserLastName());
+    }
+
+    public void clickOnTheEmail(UserData user) {
+        type(By.id("Email"), user.getEmail());
+    }
+
+    public void clickOnThePassword(UserData user) {
+        type(By.id("Password"), user.getPassword());
+    }
+
+    public void clickOnThePasswordConfirmation(UserData user) {
+        type(By.id("ConfirmPassword"), user.getPassword());
+    }
+
+    public void clickOnTheRegisterButton() {
+        click(By.id("register-button"));
+    }
+
+    // --------- Login ----------
+    public void clickOnTheLogin() {
+        click1(By.cssSelector("[href='/login']"));
+    }
+
+    public void clickOnTheEmailDueLogin(UserData user) {
+        type1(By.id("Email"), user.getEmail());
     }
 
     public void clickOnTheRememberMeDueLogin() {
         driver.findElement(By.id("RememberMe")).click();
     }
 
-    public void clickOnTheEmailDueLogin() {
-        type1(By.id("Email"), "rosaliaw1@de.com");
-    }
-
-    public void clickOnTheLogin() {
-        click1(By.cssSelector("[href='/login']"));
+    public void clickOnTheLoginButtonDueLogin() {
+        driver.findElement(By.className("login-button")).click();
     }
 
     public void clickOnTheLogInButton() {
         clickOnTheLogin();
     }
-}
+
+    }

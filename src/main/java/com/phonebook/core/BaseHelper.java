@@ -1,14 +1,7 @@
 package com.phonebook.core;
 
-import com.google.common.io.Files;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
-
-import java.io.File;
-import java.io.IOException;
 
 public class BaseHelper {
 
@@ -16,12 +9,6 @@ public class BaseHelper {
 
     public BaseHelper(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public String newEmail() {
-        int i = (int) (System.currentTimeMillis() / 1000 % 3600);
-        String email = "manuel" + i + "@gmail.com";
-        return email;
     }
 
     public boolean isElementPresent(By locator) {
@@ -56,14 +43,4 @@ public class BaseHelper {
         }
     }
 
-//    public String takeScreenshot() {
-//        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//        File screenshot = new File("screenshots/screen-" + System.currentTimeMillis() + ".png");
-//
-//        try {
-//            Files.copy(tmp,screenshot);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return screenshot.getAbsolutePath();
-    }
+}
